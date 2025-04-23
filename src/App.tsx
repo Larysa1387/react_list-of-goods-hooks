@@ -47,7 +47,7 @@ function getPrepearedGoods(
 }
 
 export const App: React.FC = () => {
-  const [sortField, setSortField] = useState<SortType | ''>(SortType.DEFAULT);
+  const [sortField, setSortField] = useState<SortType>(SortType.DEFAULT);
   const [reversed, setReversed] = useState<boolean>(false);
 
   const preparedGoods = getPrepearedGoods(goodsFromServer, {
@@ -56,7 +56,7 @@ export const App: React.FC = () => {
   });
 
   const resetClick = () => {
-    setSortField('');
+    setSortField(SortType.DEFAULT);
     if (reversed) {
       setReversed(!reversed);
     }
